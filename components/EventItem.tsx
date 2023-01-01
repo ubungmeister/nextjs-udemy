@@ -4,6 +4,7 @@ import Button from "./ui/Button";
 import DateIcon from "./icons/date-icon";
 import AddressIcon from "./icons/address-icon";
 import ArrowRightIcon from "./icons/arrow-right-icon";
+import Image from "next/image";
 export type OneEventType = {
     event: PropsType
 }
@@ -20,7 +21,11 @@ const EventItem = ({event}: OneEventType) => {
     return (
         <li className='bg-white rounded-lg	transition ease-in-out delay-150 hover:-translate-y-4 hover:scale-100 duration-300'>
             <div className='aspect-w-16 aspect-h-9'>
-                <img className="images rounded-t-lg object-cover h-64 w-full" src={'/' + image} alt={''}/>
+                <Image
+                    className="images rounded-t-lg object-cover h-64 w-full"
+                    src={'/' + image} alt={''}
+                    width={400} height={400}
+                />
             </div>
             <div className='bg-gray-200 py-2 px-2 rounded-b'>
                 <div className='my-0.5'>

@@ -2,6 +2,7 @@
 
 import EventList from "../../components/EventList";
 import {getFilteredEvents} from "../../helpers/apiUtils";
+import Head from "next/head";
 
 
 export type EventType={
@@ -19,11 +20,26 @@ export type EventArrType = {
 
 function  FilteredEvents ({events}:EventArrType){
 
+    const pageHeadData = (
+        <Head>
+            <title>Filtered events</title>
+            <meta name='description' content='Events...'/>
+        </Head>
+    )
+
     if(!events || events.length === 0){
-        return <p>No events found</p>
+        return (
+            <>
+            {pageHeadData}
+            <p>No events found</p>
+            </>
+        )
     }
     return(
-        <EventList array={events}/>
+        <div>
+            {pageHeadData}
+            <EventList array={events}/>
+        </div>
     )
 
 }
